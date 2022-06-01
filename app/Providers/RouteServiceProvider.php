@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    protected  $namespace =  'App\\Http\\Controllers';
     /**
      * The path to the "home" route for your application.
      *
@@ -34,7 +35,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web.php'));//以上代码将使用 $namespace 作为 routes/web.php 路由文件中的命名前缀，这样允许我们在路由中使用简短的 Class@Method 格式。
         });
     }
 
