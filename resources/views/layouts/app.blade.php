@@ -13,6 +13,9 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    {{--只在话题创建页面中加载这些文件--}}
+
+    @yield('styles')
 
 </head>
 
@@ -34,6 +37,10 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
+{{--只在话题创建页面中加载这些文件--}}
+
+@yield('scripts')
+
 </body>
 
 </html>
