@@ -34,7 +34,9 @@
 
     @include('layouts._footer')
 </div>
-
+@if (app()->isLocal())
+    @include('sudosu::user-selector')
+@endif
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 {{--只在话题创建页面中加载这些文件--}}
