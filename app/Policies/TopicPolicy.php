@@ -9,11 +9,11 @@ class TopicPolicy extends Policy
 {
     public function update(User $user, Topic $topic)
     {
-        return $topic->user_id == $user->id;//只允许作者对话题有编辑权限
+        return $user->isAuthorOf($topic);//只允许作者对话题有编辑权限
     }
 
     public function destroy(User $user, Topic $topic)
     {
-        return true;
+        return $user->isAuthorOf($topic);//只允许作者对话题有删除权限
     }
 }
